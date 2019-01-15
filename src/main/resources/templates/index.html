@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>接口数据库读取结果</title>
+    <link rel="stylesheet" href="/css/mainStyle.css" type="text/css">
+</head>
+<body>
+<script language="javascript">
+    function validOperator()
+    {
+        return confirm("确认删除？");
+    }
+</script>
+<div style="text-align:center;margin:20px auto;">
+    <b>所有学生信息</b>
+</div>
+<div class="main-container">
+    <table class="database-table" border="0">
+        <tr>
+            <th>编号</th>
+            <th>学生姓名</th>
+            <th>学生电话</th>
+            <th>学生地址</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="Student,iterStat:${stus}" th:class="'table-row'+${iterStat.count%2}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${Student.stuName}"></td>
+            <td th:text="${Student.stuPhone}"></td>
+            <td th:text="${Student.stuAddress}"></td>
+            <td align="center">
+                <a th:href="@{'/web/update/'+${Student.stuID}}">修&nbsp改</a>&nbsp|&nbsp
+                <a th:href="@{'/web/delete/'+${Student.stuID}}" onclick="return confirm('确认删除？')">删&nbsp除</a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td align="center"> <a href="/web/add">添&nbsp&nbsp&nbsp加</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

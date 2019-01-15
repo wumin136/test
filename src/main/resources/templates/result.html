@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>结果</title>
+    <link rel="stylesheet" href="/css/resultStyle.css" type="text/css">
+</head>
+<body>
+
+<div class="main-container">
+    <div style="text-align:center;margin:20px auto;">
+        <b>操作成功！</b>
+    </div>
+    <table class="result-table" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>属性</th>
+            <th>内容</th>
+        </tr>
+        <tr>
+            <td>学生姓名</td>
+            <td th:text="${stu.stuName}"></td>
+        </tr>
+        <tr>
+            <td>学生电话</td>
+            <td th:text="${stu.stuPhone}"></td>
+        </tr>
+        <tr>
+            <td>学生地址</td>
+            <td th:text="${stu.stuAddress}"></td>
+        </tr>
+    </table>
+    <div style="width:170px;margin:auto 30px;padding:25px;">
+        <button id="returnBtn" onclick="location.assign('/web/all')">返回查询页面</button>
+    </div>
+
+</div>
+</body>
+</html>
